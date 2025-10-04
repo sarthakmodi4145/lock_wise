@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>LockWise - Door Locked</title>
+  <style>
+    body{font-family:sans-serif;background:#f0f2f5;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;padding:20px;position:relative;}
+    .container{background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);max-width:450px;width:100%;text-align:center;}
+    input[type='text'],input[type='password'],input[type='email'],select{width:calc(100% - 20px);padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid #ddd;transition: border-color 0.3s;}
+    input.error-border {border-color: #ea4335 !important;}
+    button, .btn {background:#1877f2;color:#fff;border:none;padding:12px 20px;border-radius:8px;font-size:16px;cursor:pointer;width:100%;margin-top:5px;text-decoration:none;display:block;box-sizing: border-box;}
+    button:hover, .btn:hover{background:#166fe5;}
+    .btn-secondary{background:#e4e6eb;color:#4b4f56;} .btn-secondary:hover{background:#d8dade;}
+    .btn-danger{background:#fa3e3e;} .btn-danger:hover{background:#e03838;}
+    .message{padding:10px;border-radius:8px;margin-bottom:15px;text-align:center;}
+    .success{background:#e9f6ec;color:#34a853;} .error{background:#fce8e6;color:#ea4335;}
+    .status-indicator{position:absolute;top:10px;right:10px;font-size:14px;color:#777;}
+    .status-indicator .dot{height:10px;width:10px;border-radius:50%;display:inline-block;margin-right:5px;}
+    .dot.connected{background-color:green;}
+    .dot.disconnected{background-color:red;}
+  </style>
+</head>
+<body>
+  <div class='status-indicator'><span class='dot disconnected'></span>Disconnected</div>
+  <div class='container'>
+    <h1>LockWise</h1>
+    <form action='/handle_main' method='POST'>
+      <input type='password' name='password' placeholder='Enter OTP'><br>
+      <button id="unlock-button" type='submit' name='action' value='open'>Unlock Door</button>
+    </form>
+    <div style='margin-top:15px;'>
+      <a href='/admin' id="admin-button" class='btn btn-danger'>Admin Password Change</a>
+    </div>
+  </div>
+</body>
+</html>
